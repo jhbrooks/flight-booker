@@ -66,3 +66,16 @@ p {
   margin-top: 45px;
   @include box_sizing;
 }
+
+/* flights index */
+
+select {
+  margin-left: 3px;
+  margin-right: 8px;
+}
+
+li {
+  span {
+    display: block;
+  }
+}

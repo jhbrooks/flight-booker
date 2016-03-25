@@ -1,0 +1,38 @@
+<h1>Flights</h1>
+
+<h3>Search for flights</h3>
+
+<%= form_tag flights_url, method: :get do %>
+  <%= label_tag :from_id, "From:" %>
+  <%= select_tag :from_id,
+                 options_for_select(@from_options,
+                                    selected: params[:from_id]) %>
+  <%= label_tag :to_id, "To:" %>
+  <%= select_tag :to_id,
+                 options_for_select(@to_options,
+                                    selected: params[:to_id]) %>
+  <%= label_tag :start, "Date:" %>
+  <%= select_tag :start,
+                 options_for_select(@start_date_options,
+                                    selected: params[:start]) %>
+  <%= label_tag :num_passengers, "Passengers:" %>
+  <%= select_tag :num_passengers,
+                 options_for_select(@passenger_options,
+                                    selected: params[:num_passengers]) %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @matching_flights.any? %>
+  <h3>Found flights</h3>
+  <ul>
+    <% @matching_flights.each do |flight| %>
+      <li>
+        <span>
+          <%= "#{flight.from_airport.code} to #{flight.to_airport.code}" %>
+        </span>
+        <span><%= "Date: #{formatted_start_time(flight.start)}"%></span>
+        <span><%= "Duration: #{formatted_duration(flight.duration)}"%></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

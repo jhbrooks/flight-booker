@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start: 2016-03-23 01:02:50
-  duration: 2016-03-23 01:02:50
+  start: 2016-03-23 01:00:00
+  duration: 2016-03-23 01:00:00
   from_airport: one
   to_airport: two
 
 two:
-  start: 2016-03-23 01:02:50
-  duration: 2016-03-23 01:02:50
+  start: 2016-03-23 01:00:00
+  duration: 2016-03-23 01:00:00
+  from_airport: two
+  to_airport: one
+
+three:
+  start: 2016-03-24 01:00:00
+  duration: 2016-03-23 01:00:00
   from_airport: two
   to_airport: one
