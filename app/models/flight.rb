@@ -5,4 +5,6 @@ class Flight < ActiveRecord::Base
   belongs_to :to_airport, foreign_key: :to_id,
                           inverse_of: :arriving_flights,
                           class_name: "Airport"
+  has_many :bookings
+  has_many :passengers, through: :bookings
 end
