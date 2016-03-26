@@ -15,19 +15,8 @@ body {
   padding-top: 60px;
 }
 
-section {
-  overflow: auto;
-}
-
 textarea {
   resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
 } 
 
 /* typography */
@@ -41,20 +30,6 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 /* debugging */
@@ -74,8 +49,45 @@ select {
   margin-right: 8px;
 }
 
-li {
-  span {
-    display: block;
+span {
+  display: block;
+}
+
+.flights_results {
+  li {
+    list-style: none;
+    border-bottom: 1px $gray-light solid;
+    margin-bottom: 8px;
+  }
+}
+
+/* bookings new */
+
+#book_flight {
+  margin-top: 13px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form_control {
+    color: $state-danger-text;
+  }
+}
+
+/* bookings show */
+
+.passengers {
+  li {
+    list-style: none;
+    border-bottom: 1px $gray-light solid;
+    margin-bottom: 8px;
   }
 }

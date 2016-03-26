@@ -1,0 +1,26 @@
+<% provide :title, "Book flight" %>
+
+<h1>Book flight</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @booking, url: new_booking_path do |f| %>
+      <% n = 1 %>
+      <%= f.fields_for :passengers do |passenger_f| %>
+        <h3><%= "Passenger #{n}" %></h3>
+        <% n += 1 %>
+
+        <%= render "shared/error_messages", object: passenger_f.object %>
+
+        <%= passenger_f.label :name %>
+        <%= passenger_f.text_field :name, class: "form-control" %>
+
+        <%= passenger_f.label :email %>
+        <%= passenger_f.email_field :email, class: "form-control" %>
+      <% end %>
+
+      <%= hidden_field_tag :flight_id, @booking.flight_id %>
+      <%= f.submit "Book flight", id: "book_flight" %>
+    <% end %>
+  </div>
+</div>

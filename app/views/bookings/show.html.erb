@@ -1,0 +1,23 @@
+<% provide :title, "Booking info" %>
+
+<h1>Booking information</h1>
+
+<h3>Flight details</h3>
+<span>
+  <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code}" %>
+</span>
+<span>
+  <%= "Date: #{formatted_start_time(@flight.start)}"%>
+</span>
+<span>
+  <%= "Duration: #{formatted_duration(@flight.duration)}"%>
+</span>
+
+<h3><%= pluralize(@booking.passengers.count, "Passenger").split.last %></h3>
+<div class="row">
+  <ul class="col-md-3 passengers">
+    <%= render @booking.passengers %>
+  </ul>
+</div>
+
+<%= link_to "Back to flights", root_path %>

@@ -1,8 +1,7 @@
 <h1>Flights</h1>
 
-<h3>Search for flights</h3>
-
-<%= form_tag flights_url, method: :get do %>
+<h3>Search</h3>
+<%= form_tag root_path, method: :get do %>
   <%= label_tag :from_id, "From:" %>
   <%= select_tag :from_id,
                  options_for_select(@from_options,
@@ -23,16 +22,34 @@
 <% end %>
 
 <% if @matching_flights.any? %>
-  <h3>Found flights</h3>
-  <ul>
-    <% @matching_flights.each do |flight| %>
-      <li>
-        <span>
-          <%= "#{flight.from_airport.code} to #{flight.to_airport.code}" %>
-        </span>
-        <span><%= "Date: #{formatted_start_time(flight.start)}"%></span>
-        <span><%= "Duration: #{formatted_duration(flight.duration)}"%></span>
-      </li>
-    <% end %>
-  </ul>
+  <h3>Results</h3>
+  <%= form_tag new_booking_path, method: :get do %>
+    <div class="row">
+      <ul class="col-md-3 flights_results">
+        <% @matching_flights.each_with_index do |flight, n| %>
+          <li>
+            <%= label_tag "flight_#{flight.id}_id" do %>
+              <span>
+                <%= "#{flight.from_airport.code} to "\
+                    "#{flight.to_airport.code}" %>
+              </span>
+              <span>
+                <%= "Date: #{formatted_start_time(flight.start)}"%>
+              </span>
+              <span>
+                <%= "Duration: #{formatted_duration(flight.duration)}"%>
+              </span>
+              <% if n == 0 %>
+                <%= radio_button_tag :flight_id, flight.id, true %>
+              <% else %>
+                <%= radio_button_tag :flight_id, flight.id %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+        <%= hidden_field_tag :num_passengers, params[:num_passengers] %>
+        <%= submit_tag "Choose flight" %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

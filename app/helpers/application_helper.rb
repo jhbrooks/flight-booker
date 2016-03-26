@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def full_title(page_title = "")
+    base_title = "Flight Booker"
+    page_title.empty? ? base_title : page_title + " | " + base_title
+  end
+
   def formatted_start_date(start_date)
     start_date.strftime("%-m/%-d/%Y")
   end
