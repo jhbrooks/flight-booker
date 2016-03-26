@@ -2,11 +2,11 @@ class FlightsController < ApplicationController
   def index
     @from_options = Flight
       .joins("INNER JOIN airports ON airports.id = flights.from_id")
-      .distinct.order("airports.code").pluck(:code, :from_id)
+      .distinct.order("code").pluck(:code, :from_id)
 
     @to_options = Flight
       .joins("INNER JOIN airports ON airports.id = flights.to_id")
-      .distinct.order("airports.code").pluck(:code, :to_id)
+      .distinct.order("code").pluck(:code, :to_id)
 
     @start_date_options = Flight.select(:start).distinct.pluck(:start)
                                 .map { |sd| [formatted_start_date(sd),
