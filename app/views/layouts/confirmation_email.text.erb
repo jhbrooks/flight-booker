@@ -1,0 +1,11 @@
+Flight booked (but not really)
+==============================
+
+This email came from a practice flight booker project (<%= root_url %>), and does not correspond to an actual flight. For a description of the project, please visit The Odin Project ("http://www.theodinproject.com/ruby-on-rails/sending-confirmation-emails").
+
+<%= "#{@flight.from_airport.code} to #{@flight.to_airport.code}" %>
+<%= "Date: #{formatted_start_time(@flight.start)}"%>
+<%= "Duration: #{formatted_duration(@flight.duration)}"%>
+<%= "Passenger: #{@passenger.name}" %>
+
+Thank you, and enjoy your flight!

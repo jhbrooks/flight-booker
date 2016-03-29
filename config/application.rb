@@ -22,5 +22,8 @@ module FlightBooker
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Provide the host parameter to url helpers used in mailers
+    config.action_mailer.default_url_options = { host: 'rocky-earth-72202.herokuapp.com' }
   end
 end

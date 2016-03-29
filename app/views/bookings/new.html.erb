@@ -4,6 +4,12 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <% if Rails.env.production? %>
+      <p id="caution">
+        Caution: this will send real emails. Please use responsibly!
+      </p>
+    <% end %>
+
     <%= form_for @booking, url: new_booking_path do |f| %>
       <% n = 1 %>
       <%= f.fields_for :passengers do |passenger_f| %>

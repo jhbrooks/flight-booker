@@ -39,6 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Use Letter Opener to open emails in the browser in development
+  gem 'letter_opener'
 end
 
 group :development, :test do

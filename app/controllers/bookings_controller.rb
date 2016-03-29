@@ -16,7 +16,10 @@ class BookingsController < ApplicationController
     validities = @booking.passengers.map(&:valid?)
     if @booking.valid? && validities.all? { |v| v }
       @booking.save
-      @booking.passengers.each { |passenger| passenger.save }
+      @booking.passengers.each do |passenger|
+        passenger.save
+        PassengerMailer.confirmation_email(passenger, @flight).deliver_later
+      end
       flash[:success] = "Booking successful!"
       redirect_to booking_path(@booking)
     else

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Flight booked (but not really)</h3>
+    <p>
+      This email came from a 
+      <%= link_to "practice flight booker project", root_url %>, and does not 
+      correspond to an actual flight. For more information, please visit 
+      <%= link_to "The Odin Project", "http://www.theodinproject.com/"\
+                                      "ruby-on-rails/"\
+                                      "sending-confirmation-emails" %>.
+    </p>
+    <p>
+      <span style="display: block;">
+       <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code}" %>
+      </span>
+      <span style="display: block;">
+        <%= "Date: #{formatted_start_time(@flight.start)}"%>
+      </span style="display: block;">
+      <span  style="display: block;">
+        <%= "Duration: #{formatted_duration(@flight.duration)}"%>
+      </span>
+      <span style="display: block;">
+        <%= "Passenger: #{@passenger.name}" %>
+      </span>
+    </p>
+    <p>
+      Thank you, and enjoy your flight!
+    </p>
+  </body>
+</html>

@@ -63,8 +63,13 @@ span {
 
 /* bookings new */
 
+#caution {
+  font-weight: bold;
+}
+
 #book_flight {
   margin-top: 13px;
+  margin-bottom: 15px;
 }
 
 #error_explanation {
