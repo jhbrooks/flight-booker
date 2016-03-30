@@ -1,7 +1,7 @@
 class PassengerMailer < ApplicationMailer
   add_template_helper(ApplicationHelper)
 
-  default from: "notifications@heroku.com"
+  default from: "Flight Booker <flight-notifications@heroku.com>"
 
   def confirmation_email(passenger, flight)
     @passenger = passenger
