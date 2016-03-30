@@ -1,4 +1,8 @@
 class Booking < ActiveRecord::Base
+  unless Rails.env.test?
+    obfuscate_id
+  end
+
   belongs_to :flight
   has_many :passengers, inverse_of: :booking
 

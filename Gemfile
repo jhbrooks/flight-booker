@@ -8,6 +8,8 @@ gem 'rails', '4.2.4'
 gem 'faker', '1.4.2'
 # Use Bootstrap for improved styling
 gem 'bootstrap-sass', '3.2.0.0'
+# Use obfuscate_id to lightly mask resource ids
+gem 'obfuscate_id'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
